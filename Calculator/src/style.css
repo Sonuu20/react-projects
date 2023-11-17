@@ -1,0 +1,35 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background: linear-gradient(to right, #09203F, #537895);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator-grid {
+    display: grid;
+    margin-top: 2 rem;
+    grid-template-columns: repeat(4,6rem);
+    grid-template-rows: minmax(7rem,auto) repeat(5,6rem);
+}
+
+.span-two{
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    display: flex;
+}
+
+@media (max-width:480px) {
+    .calculator-grid{
+        grid-template-columns: repeat(4, 5rem);
+        grid-template-rows: repeat(6, 5rem);
+    }
+
+}
