@@ -42,8 +42,9 @@ function App() {
 
   return (
     <TodoContext.Provider value={{todos, addTodo, updateTodo, deleteTodo, checkmark}}>
-      <div className="bg-[#172842] min-h-screen py-8">
-         <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+  <div className='flex justify-center items-center px-4 py-1 md:p-10'>
+  <div className="bg-[#172842] w-full md:w-[100wh] h-screen py-1 m-0 px-1 md:py-8">
+         <div className="w-full max-w-3xl mx-auto shadow-md rounded-lg  px-1 py-1 md:px-3 md:py-3 text-white">
             <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
                <div className="mb-4">
                    <TodoForm />
@@ -57,6 +58,7 @@ function App() {
               </div>
           </div>
       </div>
+  </div>
     </TodoContext.Provider>
   )
 }
