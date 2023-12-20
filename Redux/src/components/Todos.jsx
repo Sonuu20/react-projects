@@ -1,31 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeTodo } from '../features/todo/todoSlice'
+import { removeTodo, addTodo } from '../features/todo/todoSlice'
 
 function Todos() {
-    const [todotext, setTodotext] = useState('')
     const todos = useSelector(state => state.todos)
     const dispatch = useDispatch()
 
-
     useEffect(() => {
-      const todos = JSON.parse(localStorage.getItem('todo-msg'))
-      if(todos && todos.length > 0) {
-        setTodotext(todos);
-      }
+       const todotext = JSON.parse(localStorage.getItem('todo-msg')) || []
+        dispatch(addTodo(todotext.text))
     }, [])
-
-
-    useEffect(() => {
-      localStorage.setItem('todo-msg', JSON.stringify(todos));
-      
-    }, [todos])
+    
     
   return (
    <>
      <div>Todos</div>
     <ul className="list-none">
-        {todos.map((todo) => (
+        {todos && todos.map((todo) => (
           <li
             className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
             key={todo.id}

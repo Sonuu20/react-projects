@@ -4,7 +4,9 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 export const todoSlice = createSlice({
     name: 'todo',
     initialState : {
-        todos : [{id: 1, text: "Hello world!"}]
+        todos : [{
+            id: 1,
+             text: "Hello world!"}]
     },
         reducers: {  
             //whenever we use the reducer we get the acess to 2 things, state & action
@@ -19,16 +21,13 @@ export const todoSlice = createSlice({
             removeTodo: (state, action) => {
                 state.todos = state.todos.filter((todo) => todo.id !== action.payload)
             },
-            updateData: (state, action) => {
-                return action.payload;
-              },
-              fetchTodos: (state, action) => {
-                return action.payload;
+            setTodos: (state, action) => {
+                return action.payload; // Assuming payload is an array of todos
               },
         }
 })
 
-export const {addTodo, removeTodo, updateData, fetchTodos} = todoSlice.actions
+export const {addTodo, removeTodo, setTodos} = todoSlice.actions
 
 // export const updateData = (todos) => {
 //     localStorage.setItem('todo-msg', JSON.stringify(todos));
